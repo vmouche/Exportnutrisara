@@ -1,12 +1,11 @@
 ---
-title: "report"
-author: "H.Favet"
+title: "Rapport"
+author: "NutrIsara"
 date: "04/05/2021"
 output: pdf_document
 params:
   n: NA
 ---
-
 Informations personnelles
 
 ```{r}
