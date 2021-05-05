@@ -1,16 +1,13 @@
 ---
 title: "Rapport"
 author: "NutrIsara"
-date: "04/05/2021"
+date: "`r format(Sys.time(), '%d %B %Y')`"
 output: pdf_document
 params:
   nom: NA
   dateCre: NA
   tab : NA
 ---
-```{r setup, include=FALSE}
-library(knitr)
-```
 
 # *Informations générales* :
 
