@@ -7,7 +7,14 @@ params:
   nom: NA
   dateCre: NA
 ---
+```{r setup, include=FALSE}
+library(knitr)
+```
 
+```{r logo, echo=FALSE, out.width = '30%', fig.align = "centre",fig.cap="Logo NutrIsara"}
+knitr::include_graphics("logo.png")
+```
+&nbsp;
 # *Informations générales* :
 
 ```{r nom, eval=FALSE, echo=FALSE}
