@@ -12,9 +12,10 @@ library(knitr)
 ```
 
 ```{r logo, echo=FALSE, out.width = '30%', fig.align = "centre",fig.cap="Logo NutrIsara"}
-knitr::include_graphics("logo.png")
+knitr::include_graphics("Logo.png")
 ```
 &nbsp;
+
 # *Informations générales* :
 
 ```{r nom, eval=FALSE, echo=FALSE}
