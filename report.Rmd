@@ -8,14 +8,6 @@ params:
   dateCre: NA
   tab : NA
 ---
-```{r setup, include=FALSE}
-library(knitr)
-```
-
-```{r logo, echo=FALSE, out.width = '30%', fig.align = "centre",fig.cap="Logo NutrIsara"}
-knitr::include_graphics("Logo.png")
-```
-&nbsp;
 
 # *Informations générales* :
 
