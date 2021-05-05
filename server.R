@@ -13,7 +13,7 @@ shinyServer(function(input, output) {
             file.copy("report.Rmd", tempReport, overwrite = TRUE)
             
             # Set up parameters to pass to Rmd document
-            params <- list(n = c(input$nompre, input$idDateCre))
+            params <- list(nom = input$nompre, dateCre = input$idDateCre)
             
             # Knit the document, passing in the `params` list, and eval it in a
             # child of the global environment (this isolates the code in the document

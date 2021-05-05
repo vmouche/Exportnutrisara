@@ -4,11 +4,19 @@ author: "NutrIsara"
 date: "04/05/2021"
 output: pdf_document
 params:
-  n: NA
+  nom: NA
+  dateCre: NA
 ---
-Informations personnelles
 
-```{r}
+# *Informations générales* :
+
+```{r nom, eval=FALSE, echo=FALSE}
 # The `params` object is available in the document.
-params$n
+params$nom
 ```
+Nom de l'opérateur : `r params$nom`
+```{r date, eval=FALSE, echo=FALSE}
+# The `params` object is available in the document.
+params$dateCre
+```
+Date de création : `r params$dateCre`
