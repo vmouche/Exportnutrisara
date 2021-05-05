@@ -6,6 +6,7 @@ output: pdf_document
 params:
   nom: NA
   dateCre: NA
+  tab : NA
 ---
 ```{r setup, include=FALSE}
 library(knitr)
@@ -28,3 +29,8 @@ Nom de l'opérateur : `r params$nom`
 params$dateCre
 ```
 Date de création : `r params$dateCre`
+
+```{r tableau, eval=TRUE, echo=TRUE}
+# The `params` object is available in the document.
+params$tab
+```
