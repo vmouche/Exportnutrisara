@@ -43,8 +43,7 @@ tabtest <-read_xls("Tabtestb.xls", col_names = TRUE)
 newtab<- pivot_longer(tabtest, c("Eau", "Proteines", "Glucides", "Lipides", "Sucres", "FibresAlimentaires", "AGsat", "Sel", "Autre", "total"), names_to = "class", values_to = "pourcentage")
 
 #sélection d'une recette
-#ligne pour enlever lipides et glucides
-nrecette2<-tabtest[1,c(2:4,7:9)]
+nrecette2<-newtab[c(1:9),]
 
 #piechart a modif pour avoir les valeurs des elements (et changer de type de graph car pie pas top)
 ggplot(nrecette2, aes(x = factor(1), fill =class)) +
