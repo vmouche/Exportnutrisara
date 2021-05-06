@@ -25,4 +25,34 @@ Date de création : `r params$dateCre`
 ```{r tableau, eval=TRUE, echo=TRUE}
 # The `params` object is available in the document.
 knitr::kable(params$tab, caption = "Exemple de tableau")
+
+```
+
+Proportion d'éléments :
+```{r pierecette, eval=TRUE, echo=FALSE}
+# The `params` object is available in the document.
+#a sortir du rmd
+library(ggplot2)
+library(readxl)
+library(dplyr)
+library(tidyverse)
+tabtest <-read_xls("Tabtestb.xls", col_names = TRUE)
+
+
+#pour tidy le tableau
+newtab<- pivot_longer(tabtest, c("Eau", "Proteines", "Glucides", "Lipides", "Sucres", "FibresAlimentaires", "AGsat", "Sel", "Autre", "total"), names_to = "class", values_to = "pourcentage")
+
+#sélection d'une recette
+#ligne pour enlever lipides et glucides
+nrecette2<-tabtest[1,c(2:4,7:9)]
+
+#piechart a modif pour avoir les valeurs des elements (et changer de type de graph car pie pas top)
+ggplot(nrecette2, aes(x = factor(1), fill =class)) +
+  geom_bar(width = 1) +
+  coord_polar(theta = "y")
+
+#autre graph
+ggplot(data = nrecette2) +
+  geom_point(mapping = aes(x = class, y= pourcentage, color=nom))
+
 ```
