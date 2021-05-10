@@ -1,10 +1,10 @@
 library(shiny)
 library(readxl)
 library(tidyr)
-tabtest <- read_excel("Tabtestc.xls")
+#tabtest <- read_excel("Tabtestc.xls")
 #tabtest<- read.csv(Tabtestc.csv)
-newtab<- pivot_longer(tabtest, c("Eau", "Proteines", "Glucides", "Lipides", "Sucres", "FibresAlimentaires", "AGsat", "Sel", "Autre", "total"), names_to = "class", values_to = "pourcentage")
-tabtest2<-read_xls("Tabledonnee2.xls",col_names = TRUE)
+#newtab<- pivot_longer(tabtest, c("Eau", "Proteines", "Glucides", "Lipides", "Sucres", "FibresAlimentaires", "AGsat", "Sel", "Autre", "total"), names_to = "class", values_to = "pourcentage")
+tabtest2<-read.csv2("Tabledonnee2.csv", header=TRUE, sep=";")
 newtab2<-pivot_longer(tabtest2,c("Eau","Proteines", "Glucides", "Lipides", "Sucres", "FibresAlimentaires", "AG_satures","Sel"))
 newtab2
 
@@ -25,7 +25,7 @@ shinyUI(fluidPage(
         textInput("idrecette", label = "Recette", value = "", width=NULL, placeholder=NULL),
         #
         selectInput("nom", "ingredient",choices = c(tabtest2$nom)),
-        mainPanel(plotOutput("piePlot"),
+        mainPanel(plotOutput("piePlot")),
         #
         downloadButton("report", "Generate report")
 ),
@@ -34,4 +34,3 @@ shinyUI(fluidPage(
             
         )
     )
-)
