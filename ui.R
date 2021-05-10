@@ -27,10 +27,10 @@ shinyUI(fluidPage(
         selectInput("nom", "ingredient",choices = c(tabtest2$nom)),
         mainPanel(plotOutput("piePlot")),
         #
-        downloadButton("report", "Generate report")
-),
+        downloadButton("report", "Generate report"),
         # Show a plot of the generated distribution----
 
             
         )
     )
+)
