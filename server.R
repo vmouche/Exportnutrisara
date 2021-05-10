@@ -26,8 +26,8 @@ shinyServer(function(input, output) {
             output$dateText  <- renderText({
                 paste("input$date is", as.character(input$date))
             })
-            output$piePlot <- renderPlot({ggplot(data = newtab[(input$nom),]) +
-                    geom_point(mapping = aes(x = class, y= pourcentage, color=nom))
+            output$piePlot <- renderPlot({ggplot(data = newtab2[c(input$nom),]) +
+                    geom_point(mapping = aes(x = name, y= value, color=nom))
             })
     })
 })
