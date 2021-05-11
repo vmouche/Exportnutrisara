@@ -2,12 +2,9 @@ library(shiny)
 library(readxl)
 library(tidyr)
 
-tabtest2<-read.csv2("Tabtest.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
+tabtest2<-read.csv2("Tab.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
 newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
 colnames(newtab2)<-c("nomr", "name", "value")
-#write.csv2(newtab2, file="newtab2.csv")
-newtab2
-
 
 # Define UI for application that draws a histogram----
 shinyUI(fluidPage(
