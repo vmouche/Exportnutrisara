@@ -1,4 +1,5 @@
 library(shiny)
+library(tidyverse)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -26,9 +27,14 @@ shinyServer(function(input, output) {
             output$dateText  <- renderText({
                 paste("input$date is", as.character(input$date))
             })
-            output$piePlot <- renderPlot({ggplot(data = newtab2[c(input$nom),]) +
-                    geom_point(mapping = aes(x = name, y= value, color=nom))
-            })
+        })
+    
+   
+        output$scatterPlot <- renderPlot({
+            newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
+            #newtab3 <- filter(newtab2, newtab2$nomr == input$nomI)
+            output$scatterPlot <- renderPlot({ggplot(data = newtab3) + 
+                    geom_point(mapping = aes(x = name, y = value))
+        })
     })
 })
-
