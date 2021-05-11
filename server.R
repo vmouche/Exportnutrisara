@@ -31,10 +31,13 @@ shinyServer(function(input, output) {
     
    
         output$scatterPlot <- renderPlot({
-            newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
-            #newtab3 <- filter(newtab2, newtab2$nomr == input$nomI)
-            output$scatterPlot <- renderPlot({ggplot(data = newtab3) + 
-                    geom_point(mapping = aes(x = name, y = value))
-        })
+            tabtest2<-read.csv2("Tab.csv", header=TRUE, dec=",", sep=";", encoding = "latin1")
+            newtab2<-pivot_longer(tabtest2,c("Eau","Protéines", "Glucides", "Lipides", "Sucres", "Fibres.alimentaires", "AG.saturés","Sel"))
+            colnames(newtab2)<-c("nomr", "name", "value")
+            #newtab3 <- filter(newtab2, newtab2$nomr == "Dessert (aliment moyen)")
+            newtab3 <- filter(newtab2, newtab2$nomr == input$nomI)
+            ggplot(data = newtab3) + 
+                geom_point(mapping = aes(x = name, y = value))
+        #})
     })
 })
